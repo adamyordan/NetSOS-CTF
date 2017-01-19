@@ -63,13 +63,14 @@ export class AppService {
   doLogin(contest): Observable<any> {
     const formData = new FormData();
     formData.append('contest_id', contest.id);
-
+    
     return this.http.post(this.url.loginContest, formData).map((res: Response) => {
       let body = res.json();
       if (body && body.setCookie) {
         let sc: any[] = body.setCookie.split('; ');
         if (sc.length > 0) {
           let kv = sc[0].split('=');
+          this.setCookie(sc[0], '', -1)
           this.setCookie(sc[0], sc[1], 1)
         }
       }
@@ -77,7 +78,7 @@ export class AppService {
     })
   }
 
-  private setCookie(name: string, value: string, expireDays: number, path: string = "") {
+  private setCookie(name: string, value: string, expireDays: number, path: string = this.url_root) {
     let d:Date = new Date();
     d.setTime(d.getTime() + expireDays * 24 * 60 * 60 * 1000);
     let expires:string = "expires=" + d.toUTCString();
