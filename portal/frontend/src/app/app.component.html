@@ -1,0 +1,160 @@
+<div class="app-root">
+  <div class="topbar">
+    <div class="topbar-right">
+      <span class="username">{{me?.username}}</span>
+      <a class="btn btn-sm btn-sign-out" href="{{appService?.url_root}}/logout">Sign out</a>
+    </div>
+  </div>
+  <div class="sidebar">
+    <div class="sidebar-header">
+      netsosCTF
+    </div>
+    <div class="sidebar-body">
+      <button class="btn sidebar-item" (click)="selectedRoute='contest'">Contest</button>
+      <button class="btn sidebar-item" (click)="routeToProfile()">Profile</button>
+    </div>
+  </div>
+  <div class="main-no-flex" *ngIf="selectedRoute == 'profile' && selectedUser">
+    <div class="pro-header">
+      <h3>P R O F I L E</h3>
+    </div>
+    <div class="pro-nav"></div>
+
+    <div>
+      <div class="col-lg-6">
+        <div class="pro-card with-max-width">
+          <div class="pro-card-header">
+            <h4>Information</h4>
+          </div>
+          <div class="pro-card-body child-text-center">
+            <div class="form-group">
+              <label>Username</label>
+              <input class="form-control" value={{me?.username}} disabled>
+            </div>
+            <div class="form-group">
+              <label>SSO UI</label>
+              <input class="form-control" value={{me?.username_ui}} disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="pro-card">
+          <div class="pro-card-header">
+            <h4>Participations</h4>
+          </div>
+          <div class="participation-item">
+            <div class="pro-card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>contest</th>
+                    <th>position</th>
+                    <th>score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let participation of me?.participations">
+                    <td>{{participation.contest?.name}}</td>
+                    <td>{{participation.position}}</td>
+                    <td>{{participation.point}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main" *ngIf="selectedRoute == 'contest'">
+    <div class="main-half-left">
+      <div>
+        <div class="contest-container">
+          <div class="cc-header">
+            <h3>C O N T E S T</h3>
+          </div>
+          <div class="cc-nav">
+            
+          </div>
+          <div class="contest-item" *ngFor="let contest of contests"
+            (click)="selectContest(contest)">
+            <div class="contest-item-left">
+              <h3>{{contest.name}}</h3>
+              <p>{{contest.description}}</p>
+            </div>
+            <div class="contest-item-right">
+              <p>Active: {{contest.active}}</p>
+              <p>Participated: {{isParticipating(me, contest)}}</p>
+              <p>Total Player: {{contest.participations.length}}</p>
+              <p>Time: {{contest.startTime|date}} - {{contest.endTime|date}}</p>
+            </div>
+          </div>
+          <h4 class="text-center" *ngIf="oldContests?.length > 0">Old Contest</h4>
+          <div class="contest-item" *ngFor="let contest of oldContests"
+            (click)="selectContest(contest)">
+            <div class="contest-item-left">
+              <h3>{{contest.name}}</h3>
+              <p>{{contest.description}}</p>
+            </div>
+            <div class="contest-item-right">
+              <p>Active: {{contest.active}}</p>
+              <p>Participated: {{isParticipating(me, contest)}}</p>
+              <p>Total Player: {{contest.participations.length}}</p>
+              <p>Time: {{contest.startTime|date}} - {{contest.endTime|date}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-half-right">
+      <div>
+        <div class="contest-detail-container" *ngIf="selectedContest">
+          <div class="cd-card">
+            <h3>{{selectedContest.name}}
+            <div class="cd-card-right">
+              <button class="btn" 
+                [disabled]="!selectedContest.active || isParticipating(me, selectedContest)" 
+                (click)="participate(selectedContest)">participate</button>
+              <br>
+              <button class="btn" 
+                [disabled]="!selectedContest.active || !isParticipating(me, selectedContest)"
+                (click)="login(selectedContest)">login</button>
+              <br>
+              <button class="btn" [disabled]="!selectedContest.active"
+                (click)="go(selectedContest)">pwn!</button>
+            </div>
+            </h3>
+            <p>{{selectedContest.description}}</p>
+            <div class="contest-item-right">
+              <p>Active: {{selectedContest.active}}</p>
+              <p>Participated: {{isParticipating(me, selectedContest)}}</p>
+              <p>Total Player: {{selectedContest.participations.length}}</p>
+              <p>Time: {{selectedContest.startTime|date}} - {{selectedContest.endTime|date}}</p>
+            </div>
+            <h4>Leaderboard</h4>
+            <div class="cd-leaderboard">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>username</th>
+                    <th>point</th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="selectedContest?.scoreboardData">
+                  <tr *ngFor="let data of selectedContest?.scoreboardData">
+                    <td>{{data.position}}</td>
+                    <td><a (click)='routeToProfile(data.user_id)'>{{data.username}}</a></td>
+                    <td>{{data.score}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
