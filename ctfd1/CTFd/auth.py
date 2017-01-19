@@ -156,7 +156,7 @@ def admin_register():
 
         logger = logging.getLogger('regs')
         logger.warn("[{0}] {1} registered with {2}".format(time.strftime("%m/%d/%Y %X"), request.form['name'].encode('utf-8'), request.form['email'].encode('utf-8')))
-        return redirect(url_for('challenges.challenges_view'))
+        return redirect(app.config['GROUND_NAME'] + url_for('challenges.challenges_view'))
     else:
         return render_template('admin_register.html')
 
@@ -187,7 +187,7 @@ def admin_login():
 
                 if request.args.get('next') and is_safe_url(request.args.get('next')):
                     return redirect(request.args.get('next'))
-                return redirect(url_for('challenges.challenges_view'))
+                return redirect(app.config['GROUND_NAME'] + url_for('challenges.challenges_view'))
             else: # This user exists but the password is wrong
                 errors.append("Your username or password is incorrect")
                 db.session.close()
@@ -204,7 +204,7 @@ def admin_login():
 def logout():
     if authed():
         session.clear()
-    return redirect(url_for('views.static_html'))
+    return redirect(app.config['GROUND_NAME'] + url_for('views.static_html'))
 
 @auth.route('/api/register', methods=['GET', 'POST'])
 def api_register():

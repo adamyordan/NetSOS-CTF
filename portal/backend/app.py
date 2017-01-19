@@ -389,9 +389,13 @@ def route_contest_login():
     if not r.json()['ok']:
       return errorJson('login refused: ' + str(r.json()['error']))
 
-    print r.headers
+    tmp = r.headers['Set-Cookie'].split('=',1)
 
-    return flask.jsonify(ok=True, setCookie=r.headers['set-cookie'])
+    out = flask.jsonify(ok=True, setCookie=r.headers['set-cookie'])
+    out.set_cookie(tmp[0], tmp[1])
+    return out
+    
+    # return flask.jsonify(ok=True, setCookie=r.headers['set-cookie'])
 
   else:
     return errorJson("'contest_id' not specified")
