@@ -391,8 +391,8 @@ def route_contest_login():
 
     tmp = r.headers['Set-Cookie'].split('=',1)
 
-    out = flask.jsonify(ok=True, setCookie=r.headers['set-cookie'])
-    out.set_cookie(tmp[0], tmp[1])
+    out = flask.jsonify(ok=True)
+    out.set_cookie(tmp[0], tmp[1].split(';')[0])
     return out
     
     # return flask.jsonify(ok=True, setCookie=r.headers['set-cookie'])
