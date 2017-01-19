@@ -35,7 +35,7 @@ def login():
     redirect_url = create_cas_login_url(
         current_app.config['CAS_SERVER'],
         current_app.config['CAS_LOGIN_ROUTE'],
-        'http://192.168.0.103/ctf/cas/login')
+        'http://ristek.cs.ui.ac.id/ctf/cas/login')
         # flask.url_for('.login', _external=True))
 
     if 'ticket' in flask.request.args:
@@ -103,7 +103,7 @@ def validate(ticket):
     cas_validate_url = create_cas_validate_url(
         current_app.config['CAS_SERVER'],
         current_app.config['CAS_VALIDATE_ROUTE'],
-        'http://192.168.0.103/ctf/cas/login',
+        'http://ristek.cs.ui.ac.id/ctf/cas/login',
         # flask.url_for('.login', _external=True),
         ticket)
 

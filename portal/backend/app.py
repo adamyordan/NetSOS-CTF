@@ -420,7 +420,7 @@ def route_api_user(id):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('error.html', error='404 Not Found', next=url_for('route_root'))
+    return render_template('error.html', error='404 Not Found : ' + request.path, next=url_for('route_root'))
 
 if __name__ == "__main__":
-  app.run(host='0.0.0.0', debug=True)
+  app.run(host='0.0.0.0', debug=True, port=39001)

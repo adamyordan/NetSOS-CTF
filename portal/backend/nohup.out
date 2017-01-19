@@ -1,0 +1,1251 @@
+/usr/local/lib/python2.7/dist-packages/flask_sqlalchemy/__init__.py:800: UserWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True to suppress this warning.
+  warnings.warn('SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True to suppress this warning.')
+ * Restarting with stat
+/usr/local/lib/python2.7/dist-packages/flask_sqlalchemy/__init__.py:800: UserWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True to suppress this warning.
+  warnings.warn('SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True to suppress this warning.')
+ * Debugger is active!
+ * Debugger pin code: 531-815-234
+127.0.0.1 - - [19/Jan/2017 18:40:43] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:40:43] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:41:43] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 500 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:41:43] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:41:43] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:41:43] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:41:43] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:41:43] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:41:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:41:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:41:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:41:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:41:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:42:43] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Flask-0.11.dev0-py2.7.egg/flask/app.py", line 1979, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/Flask-0.11.dev0-py2.7.egg/flask/app.py", line 1970, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/Flask-0.11.dev0-py2.7.egg/flask/app.py", line 1546, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/Flask-0.11.dev0-py2.7.egg/flask/app.py", line 1967, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/Flask-0.11.dev0-py2.7.egg/flask/app.py", line 1620, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/Flask-0.11.dev0-py2.7.egg/flask/app.py", line 1523, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/Flask-0.11.dev0-py2.7.egg/flask/app.py", line 1618, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/Flask-0.11.dev0-py2.7.egg/flask/app.py", line 1604, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/adam/netsos-ctf/portal/backend/app.py", line 239, in route_contest_standing
+    return flask.jsonify(ok=True, data=contest.getStanding())
+  File "/home/adam/netsos-ctf/portal/backend/app.py", line 96, in getStanding
+    raw_standing = r.json()['standings']
+  File "/usr/local/lib/python2.7/dist-packages/requests/models.py", line 850, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python2.7/json/__init__.py", line 326, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 365, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.7/json/decoder.py", line 383, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded
+127.0.0.1 - - [19/Jan/2017 18:42:43] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:42:43] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:42:43] "GET /ctf/api/user/%5Bobject%20Object%5D HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:43:43] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 500 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:44:43] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 500 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:45:43] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 500 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:46:43] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 500 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:46:43] "GET /ctf/api/me HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:46:43] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:46:44] "GET /ctf/api/me HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:46:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:47:43] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 500 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:47:43] "GET /ctf/api/me HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:47:43] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:47:43] "GET /ctf/api/me HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:47:43] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:47:43] "GET /ctf/api/me HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:47:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:47:44] "GET /ctf/api/me HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:48:43] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 500 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:48:43] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:48:43] "GET /ctf/api/me HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:48:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:48:44] "GET /ctf/api/me HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:48:44] "GET /ctf/api/me HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:48:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:48:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:48:44] "GET /ctf/api/me HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:48:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 194, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 185, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/Werkzeug-0.11.2-py2.7.egg/werkzeug/serving.py", line 153, in write
+    self.send_header(key, value)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 401, in send_header
+    self.wfile.write("%s: %s\r\n" % (keyword, value))
+IOError: [Errno 32] Broken pipe
+127.0.0.1 - - [19/Jan/2017 18:50:59] "GET /ctf/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:00] "GET /ctf/login HTTP/1.0" 302 -
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:101]:
+validating token ST-9660-bU52eUwVfbZdpjBbxtf7-sso.ui.ac.id
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:111]:
+Making GET request to https://sso.ui.ac.id/cas2/serviceValidate?service=http%3A%2F%2Fristek.cs.ui.ac.id%2Fctf%2Fcas%2Flogin&ticket=ST-9660-bU52eUwVfbZdpjBbxtf7-sso.ui.ac.id
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:137]:
+invalid
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:55]:
+Redirecting to: https://sso.ui.ac.id/cas2/?service=http%3A%2F%2Fristek.cs.ui.ac.id%2Fctf%2Fcas%2Flogin
+--------------------------------------------------------------------------------
+127.0.0.1 - - [19/Jan/2017 18:51:00] "GET /ctf/cas/login/ HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 18:51:03] "GET /ctf/cas/login?ticket=ST-9673-Cbf4BNYTCgHFb3lKzLpl-sso.ui.ac.id HTTP/1.0" 301 -
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:101]:
+validating token ST-9673-Cbf4BNYTCgHFb3lKzLpl-sso.ui.ac.id
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:111]:
+Making GET request to https://sso.ui.ac.id/cas2/serviceValidate?service=http%3A%2F%2Fristek.cs.ui.ac.id%2Fctf%2Fcas%2Flogin&ticket=ST-9673-Cbf4BNYTCgHFb3lKzLpl-sso.ui.ac.id
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:124]:
+valid
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:55]:
+Redirecting to: /ctf/login/confirm
+--------------------------------------------------------------------------------
+127.0.0.1 - - [19/Jan/2017 18:51:03] "GET /ctf/cas/login/?ticket=ST-9673-Cbf4BNYTCgHFb3lKzLpl-sso.ui.ac.id HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 18:51:04] "GET /ctf/login/confirm HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 18:51:04] "GET /ctf/register HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:10] "POST /ctf/register HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 18:51:11] "GET /ctf/home HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:12] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:12] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:13] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:20] "POST /ctf/api/contest/register HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:22] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:23] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:23] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:24] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:28] "POST /ctf/api/contest/login HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:35] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:35] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:36] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:42] "GET /ctf/home HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:46] "GET /ctf/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:48] "GET /ctf/login HTTP/1.0" 302 -
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:55]:
+Redirecting to: https://sso.ui.ac.id/cas2/?service=http%3A%2F%2Fristek.cs.ui.ac.id%2Fctf%2Fcas%2Flogin
+--------------------------------------------------------------------------------
+127.0.0.1 - - [19/Jan/2017 18:51:49] "GET /ctf/cas/login/ HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 18:51:51] "GET /ctf/cas/login?ticket=ST-9674-OizUAJzSLcXUXUm0AYUQ-sso.ui.ac.id HTTP/1.0" 301 -
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:101]:
+validating token ST-9674-OizUAJzSLcXUXUm0AYUQ-sso.ui.ac.id
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:111]:
+Making GET request to https://sso.ui.ac.id/cas2/serviceValidate?service=http%3A%2F%2Fristek.cs.ui.ac.id%2Fctf%2Fcas%2Flogin&ticket=ST-9674-OizUAJzSLcXUXUm0AYUQ-sso.ui.ac.id
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:124]:
+valid
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:55]:
+Redirecting to: /ctf/login/confirm
+--------------------------------------------------------------------------------
+127.0.0.1 - - [19/Jan/2017 18:51:52] "GET /ctf/cas/login/?ticket=ST-9674-OizUAJzSLcXUXUm0AYUQ-sso.ui.ac.id HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 18:51:52] "GET /ctf/login/confirm HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 18:51:52] "GET /ctf/home HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:53] "GET /ctf/static/styles.bundle.css HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:53] "GET /ctf/static/inline.bundle.js HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:54] "GET /ctf/static/vendor.bundle.js HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:51:54] "GET /ctf/static/main.bundle.js HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:52:14] "GET /ctf/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:53:39] "GET /ctf/api/contest HTTP/1.0" 301 -
+127.0.0.1 - - [19/Jan/2017 18:53:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:53:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:53:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:53:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:53:59] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:53:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:09] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:09] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:19] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:19] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:20] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:22] "GET /ctf/static/inline.bundle.map HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:22] "GET /ctf/static/vendor.bundle.map HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:22] "GET /ctf/static/main.bundle.map HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:23] "GET /ctf/static/styles.bundle.map HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:28] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:29] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:29] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:30] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:40] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:59] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:54:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:09] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:09] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:10] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:15] "GET /ctf/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:19] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:19] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:29] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:29] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:59] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:55:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:09] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:09] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:19] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:19] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:29] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:29] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:59] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:56:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:09] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:09] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:12] "GET /ctf/login HTTP/1.0" 302 -
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:55]:
+Redirecting to: https://sso.ui.ac.id/cas2/?service=http%3A%2F%2Fristek.cs.ui.ac.id%2Fctf%2Fcas%2Flogin
+--------------------------------------------------------------------------------
+127.0.0.1 - - [19/Jan/2017 18:57:12] "GET /ctf/cas/login/ HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 18:57:19] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:19] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:29] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:29] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:59] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:57:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:06] "GET /ctf/cas/login?ticket=ST-9678-iUswwxNdJ69ODDWmdDI6-sso.ui.ac.id HTTP/1.0" 301 -
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:101]:
+validating token ST-9678-iUswwxNdJ69ODDWmdDI6-sso.ui.ac.id
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:111]:
+Making GET request to https://sso.ui.ac.id/cas2/serviceValidate?service=http%3A%2F%2Fristek.cs.ui.ac.id%2Fctf%2Fcas%2Flogin&ticket=ST-9678-iUswwxNdJ69ODDWmdDI6-sso.ui.ac.id
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:124]:
+valid
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:55]:
+Redirecting to: /ctf/login/confirm
+--------------------------------------------------------------------------------
+127.0.0.1 - - [19/Jan/2017 18:58:06] "GET /ctf/cas/login/?ticket=ST-9678-iUswwxNdJ69ODDWmdDI6-sso.ui.ac.id HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 18:58:07] "GET /ctf/login/confirm HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 18:58:07] "GET /ctf/register HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:09] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:09] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:19] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:19] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:23] "POST /ctf/register HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 18:58:23] "GET /ctf/home HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:24] "GET /ctf/static/styles.bundle.css HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:24] "GET /ctf/static/inline.bundle.js HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:25] "GET /ctf/static/vendor.bundle.js HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:25] "GET /ctf/static/main.bundle.js HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:29] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:29] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:53] "GET /ctf/api/contest HTTP/1.0" 301 -
+127.0.0.1 - - [19/Jan/2017 18:58:53] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:54] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:59] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:58:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:05] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:05] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:09] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:09] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:14] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:14] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:19] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:19] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:24] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:29] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:29] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:34] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:34] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:54] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:54] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:59] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 18:59:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:04] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:04] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:09] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:09] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:14] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:14] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:19] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:19] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:24] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:29] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:29] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:35] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:35] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:53] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:53] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:55] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:58] "GET /ctf/api/user/undefined HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:59] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:00:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:03] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:03] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:04] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:09] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:09] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:11] "POST /ctf/api/contest/register HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:11] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:11] "POST /ctf/api/contest/register HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:14] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:15] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:15] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:17] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:17] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:17] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:18] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:19] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:19] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:22] "POST /ctf/api/contest/login HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:28] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:28] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:29] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:29] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:31] "POST /ctf/api/contest/login HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:40] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:50] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:59] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:59] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:01:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:00] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:09] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:09] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:09] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:09] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:10] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:19] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:19] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:19] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:19] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:20] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:29] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:29] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:29] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:29] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:30] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:40] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:50] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:58] "POST /ctf/api/contest/login HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:58] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:59] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:02:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:09] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:09] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:10] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:19] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:19] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:20] "GET /ctf/home HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:21] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:21] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:26] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:28] "POST /ctf/api/contest/login HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:33] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:33] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:34] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:43] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:43] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:44] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:53] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:53] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:03:54] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:03] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:03] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:04] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:13] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:13] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:14] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:23] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:23] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:24] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:33] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:33] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:34] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:36] "GET /ctf/home HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:40] "GET /ctf/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:41] "GET /ctf/login HTTP/1.0" 302 -
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:55]:
+Redirecting to: https://sso.ui.ac.id/cas2/?service=http%3A%2F%2Fristek.cs.ui.ac.id%2Fctf%2Fcas%2Flogin
+--------------------------------------------------------------------------------
+127.0.0.1 - - [19/Jan/2017 19:04:42] "GET /ctf/cas/login/ HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 19:04:48] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:49] "GET /ctf/cas/login?ticket=ST-9680-gYco63L6fPMVzlOuieJX-sso.ui.ac.id HTTP/1.0" 301 -
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:101]:
+validating token ST-9680-gYco63L6fPMVzlOuieJX-sso.ui.ac.id
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:111]:
+Making GET request to https://sso.ui.ac.id/cas2/serviceValidate?service=http%3A%2F%2Fristek.cs.ui.ac.id%2Fctf%2Fcas%2Flogin&ticket=ST-9680-gYco63L6fPMVzlOuieJX-sso.ui.ac.id
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:124]:
+valid
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DEBUG in routing [/home/adam/netsos-ctf/portal/backend/flask_cas/routing.py:55]:
+Redirecting to: /ctf/login/confirm
+--------------------------------------------------------------------------------
+127.0.0.1 - - [19/Jan/2017 19:04:50] "GET /ctf/cas/login/?ticket=ST-9680-gYco63L6fPMVzlOuieJX-sso.ui.ac.id HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 19:04:51] "GET /ctf/login/confirm HTTP/1.0" 302 -
+127.0.0.1 - - [19/Jan/2017 19:04:51] "GET /ctf/home HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:53] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:53] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:55] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:57] "POST /ctf/api/contest/login HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:57] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:57] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:04:58] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:04] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:04] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:05] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:07] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:07] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:08] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:14] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:14] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:15] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:16] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:17] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:17] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:24] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:25] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:27] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:27] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:27] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:34] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:34] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:35] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:36] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:37] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:38] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:45] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+{'Content-Length': '17', 'Via': '1.1 ristek.cs.ui.ac.id, 1.1 cluster-proxy-8081-kraken.ui.ac.id (squid/3.5.7)', 'X-Cache': 'MISS from cluster-proxy-8081-kraken.ui.ac.id', 'Set-Cookie': 'session_ctf/playground=.eJwNj8FqwzAQRH-l7NmXqOnF0ENMEuHASgg2CaubazuVZcuFhiLHIf_ePcxhhnmH94SmS8MM5a2Z7n0BQwelKmD-mdseyie8fUEJTFWwtNta7R64PwVDbuOvLjNNAyvp-yp5wpVjKzkvltp31LxF5ZOJx-DpMmD8zqhPycdutHQW_rCgdhte29Uolw2Fieky4vWwcsKMqV5YOfkY2XfZRPfhSXiqldH1w8RaWeqCsIrjceRYTUjuE14F_N3737lJIiB2TYLXP_HCTBw.C2I5wA.8cHvEH4y0_mQhVIi9pviVVmyy1g; HttpOnly; Path=/', 'Server': 'nginx/1.8.0', 'Connection': 'keep-alive', 'Date': 'Thu, 19 Jan 2017 11:51:28 GMT', 'Content-Type': 'application/json'}
+{'Content-Length': '17', 'Via': '1.1 ristek.cs.ui.ac.id, 1.1 cluster-proxy-8081-kraken.ui.ac.id (squid/3.5.7)', 'X-Cache': 'MISS from cluster-proxy-8081-kraken.ui.ac.id', 'Set-Cookie': 'session_ctf/playground=.eJwdj01rwzAQRP9K2bMPjSpfDD0k2BEN7JoGpbC6qYkTy7IciPNlhfz3Kj28w8DwhnmA3QU3QLG3_dhk4HZQfGQwHIdtA8UD3n6hAI6YY1w71l837nxeK5a1wsTKcfTRaJxhwiiOVM4lh2pibXyteWLxPaFAibF1LDaS9CGnf9fCY1ykjnF12TvS1cvXc7f0HLczKg93ozbChB9PoXontWpNV0kWr8w3iqalLrn1ssWQ9hXeSfEnPDO4jM1psCEdgNGez1fnLTz_ANUwTVk.C2I8Eg.OfsrrV2RP7IyvwxGaoY0jeP-f-E; HttpOnly; Path=/', 'Server': 'nginx/1.8.0', 'Connection': 'keep-alive', 'Date': 'Thu, 19 Jan 2017 12:01:22 GMT', 'Content-Type': 'application/json'}
+{'Content-Length': '17', 'Via': '1.1 ristek.cs.ui.ac.id, 1.1 cluster-proxy-8081-kraken.ui.ac.id (squid/3.5.7)', 'X-Cache': 'MISS from cluster-proxy-8081-kraken.ui.ac.id', 'Set-Cookie': 'session_ctf/playground=.eJwNj8FqhDAUAH-lvLOHGPUi9GBJVlJ4b9klQZJbqnZrbCzUbde67L8395mBuYMf4rRA_e4_1zGDaYC6yGD5WvoR6js8vUENrnuNpBWjqG7UyRKDYU6cA4qXmaJkx07dLMeCuOIu2AqF4iQaZsMpJ92XuDcFChePrSxwNyXqQ3Ra5RQaRsJUTsuK2tNGnclRJ1Z_zLRf_lw8RxcuG7VyS97mApakD7PVferKgsIQiKeultwGZJabZ3hk8LOO34uPaQBWf73-TrOHxz87Jkoo.C2I8Gw.zIYJK-RMleAxrtvMUDdX-RSsbGY; HttpOnly; Path=/', 'Server': 'nginx/1.8.0', 'Connection': 'keep-alive', 'Date': 'Thu, 19 Jan 2017 12:01:31 GMT', 'Content-Type': 'application/json'}
+{'Content-Length': '17', 'Via': '1.1 ristek.cs.ui.ac.id, 1.1 cluster-proxy-8081-kraken.ui.ac.id (squid/3.5.7)', 'X-Cache': 'MISS from cluster-proxy-8081-kraken.ui.ac.id', 'Set-Cookie': 'session_ctf/playground=.eJwVj8FqwzAQRH-l7NkHo9gXQw8tMiaBXeOg1Eg3t3ZiyVkXGkoshfx7t4eBZWYeyzxgGNmvUJ2H623KwI9QqQzW7_VrguoBL59QgQ3kLZ82Sm8bNqeI3Cmb6sKFAztjC2LcsD8uaOro9P5Ouo5yK0r_mfMUMLqAJTbdhloc4UkduTUYsbGRery3PXkM796ZbkdJGH3ZUdiXrakLm-ar8Ln0c-TDbNMomhfplJSWEjXmVn3In8srPDP4vU0_68AyQNYNDM8_LAlMQQ.C2I8cg.btSEClFZzL7IJCAo5h2lyVC3euU; HttpOnly; Path=/', 'Server': 'nginx/1.8.0', 'Connection': 'keep-alive', 'Date': 'Thu, 19 Jan 2017 12:02:58 GMT', 'Content-Type': 'application/json'}
+{'Content-Length': '17', 'Via': '1.1 ristek.cs.ui.ac.id, 1.1 cluster-proxy-8081-kraken.ui.ac.id (squid/3.5.7)', 'X-Cache': 'MISS from cluster-proxy-8081-kraken.ui.ac.id', 'Set-Cookie': 'session_ctf/playground=.eJwVj8FugzAQRH-l2jOHAO0FqZfKKSLSGlEZLO-NEiJsbCKFtKEb5d_rHEYjzbw5zB36Y7ALFKfer2MC9ghFnsByXoYRiju8fEMB5PDVsHe12N8kY2pcs9XCeykaNhn-UVnlJExUzNWHrdXwJpVJybU3o6Ql3TLqg6Wy8yarMnz2PGykPycK0kvuAqn9DtW8q3WboqKZIo_uyyFXHD3uKCA3uRTDhuXBGW5z8-TKzmKGcTNNqPEdHgn8rONl6UM8AGt_vf7auYfHPyNDTcs.C2I8kA.sGEKtE1LaTH_qj2etQwU16CYZUM; HttpOnly; Path=/', 'Server': 'nginx/1.8.0', 'Connection': 'keep-alive', 'Date': 'Thu, 19 Jan 2017 12:03:28 GMT', 'Content-Type': 'application/json'}
+{'Content-Length': '17', 'Via': '1.1 ristek.cs.ui.ac.id, 1.1 cluster-proxy-8081-kraken.ui.ac.id (squid/3.5.7)', 'X-Cache': 'MISS from cluster-proxy-8081-kraken.ui.ac.id', 'Set-Cookie': 'session_ctf/playground=.eJwNz8tqwzAQheFXKbP2wvFlY-iiRY5JYUYoTBDWzq1cLClyIU7qxiHvXq3PB4f_AYONbobmezgvYwbOQlNmMP_MXyM0D3j5hAYk93cT1Sp570nYaDpV9RxyqY-ORFsj2yh5Sts5SBE2FG0uGTdiLGj7CKRPd9S4IuNKW6hIq9oki-I4GX9IBkvy5JOejFA74raS3JYo3iN2hx0VmBNbR74tjN5P6aOm7vRH3vo-kjOavOG3UrJ6hWcGt2W8zENMAbAM1-uvCwM8_wGM7Uv-.C2I86Q.xIAWVTe1hpCOmnhP2f-2Q7OB5WE; HttpOnly; Path=/', 'Server': 'nginx/1.8.0', 'Connection': 'keep-alive', 'Date': 'Thu, 19 Jan 2017 12:04:57 GMT', 'Content-Type': 'application/json'}
+{'Content-Length': '17', 'Via': '1.1 ristek.cs.ui.ac.id, 1.1 cluster-proxy-80127.0.0.1 - - [19/Jan/2017 19:05:47] "POST /ctf/api/contest/login HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:47] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:47] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:48] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:54] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:54] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:55] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:58] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:58] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:05:58] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:04] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:04] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:05] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:08] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:08] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:08] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:14] "POST /ctf/api/contest/login HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:14] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:14] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:15] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:19] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:19] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:25] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:25] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:29] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:29] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:30] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:34] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:34] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:35] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:40] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:45] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:50] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:54] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:54] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:55] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:59] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:06:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:00] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:04] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:04] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:05] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:08] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:09] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:14] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:14] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:14] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:19] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:19] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:24] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:25] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:26] "GET /ctf/api/user/undefined HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:28] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:29] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:29] "GET /ctf/api/user/%5Bobject%20Object%5D HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:34] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:34] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:34] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:39] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:40] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:45] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:49] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:49] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:50] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:54] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:55] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:55] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:59] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:07:59] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:00] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:04] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:04] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:04] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:07] "GET /ctf/home HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:08] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:08] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:14] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:14] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:15] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:18] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:18] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:24] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:25] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:28] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:28] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:34] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:34] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:34] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:38] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:38] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:40] "GET /ctf/api/user/undefined HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:42] "GET /ctf/api/user/%5Bobject%20Object%5D HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:44] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:45] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:48] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:48] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:54] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:55] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:56] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:58] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:58] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:08:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:04] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:04] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:06] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:08] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:08] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:14] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:15] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:16] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:18] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:18] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:24] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:25] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:28] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:28] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:30] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:34] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:34] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:35] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:38] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:38] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:45] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:48] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:48] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:54] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:54] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:55] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:58] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:58] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:09:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:04] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:04] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:05] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:08] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:08] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:14] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:14] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:15] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:18] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:18] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:24] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:25] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:28] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:28] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:34] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:34] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:36] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:38] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:38] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:44] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:48] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:48] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:54] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:54] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:55] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:58] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:58] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:10:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:04] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:04] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:04] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:08] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:08] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:14] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:14] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:15] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:18] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:18] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:24] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:25] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:28] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:28] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:34] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:34] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:35] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:38] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:38] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:45] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:48] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:48] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:54] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:54] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:55] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:58] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:58] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:11:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:04] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:04] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:04] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:08] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:08] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:14] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:15] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:16] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:18] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:18] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:24] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:25] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:28] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:28] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:34] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:35] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:35] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:38] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:38] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:45] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:48] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:48] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:54] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:54] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:54] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:58] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:58] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:12:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:04] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:04] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:05] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:08] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:08] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:14] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:14] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:15] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:18] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:18] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:24] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:24] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:28] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:28] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:34] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:34] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:34] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:38] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:39] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:45] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:45] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:48] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:48] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:54] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:54] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:54] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:58] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:58] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:13:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:04] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:04] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:04] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:08] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:08] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:14] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:14] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:15] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:18] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:18] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:24] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:25] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:28] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:28] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:34] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:34] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:34] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:38] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:38] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:44] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:44] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:48] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:48] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:54] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:54] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:55] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:58] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:58] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:14:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:04] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:04] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:05] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:08] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:08] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:14] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:14] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:14] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:18] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:18] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:24] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:25] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:28] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:28] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:34] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:34] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:34] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:38] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:38] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:47] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:48] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:48] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:48] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:54] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:55] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:55] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:58] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:58] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:15:59] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:04] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:04] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:05] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:08] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:08] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:09] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:14] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:15] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:15] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:18] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:18] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:19] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:24] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:24] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:25] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:28] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:28] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:29] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:34] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:34] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:35] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:38] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:38] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:39] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:44] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:45] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:46] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:48] "GET /ctf/api/contest/ HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:48] "GET /ctf/api/me HTTP/1.0" 200 -
+127.0.0.1 - - [19/Jan/2017 19:16:49] "GET /ctf/api/contest/standing?contest_id=1 HTTP/1.0" 200 -
