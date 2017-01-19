@@ -1,0 +1,5 @@
+flask
+flask-cas
+flask-sqlalchemy
+flask-login
+requests

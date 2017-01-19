@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NetsosCTF</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+  <link href="static/styles.bundle.css" rel="stylesheet"/></head>
+  <style>
+    .ctf-login {
+      background-color: #333;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .login-card {
+      max-width: 700px;
+      margin: 10px auto;
+      padding: 40px;
+      text-align: center;
+      color: white;
+      position: relative;
+      top: 50%;
+      transform: translateY(-70%);
+      border: 2px solid white;
+      border-radius: 4px;
+    }
+    .main-title {
+      font-size: 3em;
+      color: white;
+    }
+    .main-description {
+      color: white;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .btn-login {
+      background-color: rgba(0,0,0,0);
+      border: 2px solid white;
+      font-size: 2em;
+      color: white;
+    }
+    .btn-login:hover {
+      border: 2px solid white;
+      background-color: white;
+      color: #333;
+    }
+  </style>
+<body>
+  <div class="ctf-login">
+    <div class="login-card">
+      <h3 class="main-title">Netsos CTF</h3>
+      <h4>{{error}}</h4>
+      <p class="main-description">Redirecting in <span id="counter">3</span> seconds...</p>
+      <a class="btn btn-default btn-login" href="{{next}}">Return</a>    
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+  var counter = 3;
+  setInterval(function() {
+    var div = document.querySelector("#counter");
+    var count = --counter;
+    div.textContent = count;
+    if (count <= 0) {
+        window.location="{{next}}";
+    }
+  }, 1000);
+</script>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NetsosCTF</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+  <link href="static/styles.bundle.css" rel="stylesheet"/></head>
+  <style>
+.ctf-login {
+  background-color: #333;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.login-card {
+  max-width: 700px;
+  margin: 10px auto;
+  padding: 40px;
+  text-align: center;
+  color: white;
+  position: relative;
+  top: 50%;
+  transform: translateY(-60%);
+  border: 2px solid white;
+  border-radius: 4px;
+}
+.main-title {
+  font-size: 3em;
+  color: white;
+}
+.main-description {
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.btn-login {
+  background-color: rgba(0,0,0,0);
+  border: 2px solid white;
+  font-size: 2em;
+  color: white;
+  margin-top: 20px;
+}
+.btn-login:hover {
+  background-color: white;
+  color: #333;
+}
+.register-input {
+  background-color: rgba(0,0,0,0);
+  border: 2px solid white;
+  color: white;
+  text-align: center;
+  font-size: 2em;
+  padding: 25px;
+}
+.register-input::placeholder {
+  color: #4bb;
+}
+.form-group {
+  margin-top: 20px;
+  margin-botton: 20px;
+}
+.signout-anchor {
+  color: #6dd !important;
+  font-weight: bold;
+}
+  </style>
+<body>
+  <div class="ctf-login">
+    <div class="login-card">
+      <h3 class="main-title">R E G I S T E R</h3>
+      <p>Logged in as <b>{{cas.username}}</b> 
+        <a class="signout-anchor" href="/cas/logout">sign out</a>
+      </p>
+      <form action="{{url_for('route_register')}}" method="POST">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" class="form-control register-input" name="username">
+          {% if error %}
+            <br>
+            <div class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span>
+              {{error}}
+            </div>
+          {% endif %}
+        </div>
+        <button class="btn btn-default btn-login" type="submit">Continue</button>    
+      </form>
+    </div>
+  </div>
+</body>
+</html>
