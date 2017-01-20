@@ -13,12 +13,16 @@ manipulate contest;
       description : new description
       active      : [0|1]
       url         : 'playground'
+      startTime   : unixTime
+      endTime     : unixTime
 
     if action == 'update':
       id          : contest id
       name        : new name [optional]
       description : new description [optional]
       active      : [0|1|optional]
+      startTime   : unixTime [optional]
+      endTime     : unixTime [optional]
 
     if action == 'delete':
       id          : contest id

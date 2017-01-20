@@ -69,12 +69,16 @@ class Contest(db.Model):
   description = db.Column(db.String(80))
   active = db.Column(db.Boolean)
   url = db.Column(db.String(80))
+  startTime = db.Column(db.Integer)
+  endTime = db.Column(db.Integer)
 
-  def __init__(self, name, description, active, url):
+  def __init__(self, name, description, active, url, startTime, endTime):
     self.name = name
     self.description = description
     self.active = active
     self.url = url
+    self.startTime = startTime
+    self.endTime = endTime
 
   def __repr__(self):
       return str(self.serialize())
@@ -86,6 +90,8 @@ class Contest(db.Model):
     val['description'] = self.description
     val['active'] = self.active
     val['url'] = self.url
+    val['startTime'] = self.startTime
+    val['endTime'] = self.endTime
     if participations:
       val['participations'] = list(map(lambda x: x.serialize(contest=False), self.participations))
     return val
@@ -255,12 +261,18 @@ def route_contest_admin():
       return errorJson("'active' not specified")
     if not request.form.get('url'):
       return errorJson("'url' not specified")
+    if not request.form.get('startTime'):
+      return errorJson("'startTime' not specified")
+    if not request.form.get('endTime'):
+      return errorJson("'endTime' not specified")
 
     contest = Contest(
       request.form.get('name'), 
       request.form.get('description'), 
       bool(int(request.form.get('active'))), 
       request.form.get('url'), 
+      int(request.form.get('startTime')), 
+      int(request.form.get('endTime')), 
     )
     db.session.add(contest)
     db.session.commit()
@@ -281,6 +293,10 @@ def route_contest_admin():
       contest.name = request.form.get('name')
     if request.form.get('active'):
       contest.active = bool(int(request.form.get('active')))
+    if request.form.get('startTime'):
+      contest.startTime = int(request.form.get('startTime'))
+    if request.form.get('endTime'):
+      contest.startTime = int(request.form.get('startTime'))
 
     db.session.commit()
     return flask.jsonify(ok=True, data=contest.serialize())
@@ -429,6 +445,15 @@ def route_api_user(id):
       return flask.jsonify(ok=True, data=user.serialize(credential=False))
   else:
     return flask.jsonify(ok=False)
+
+@app.route(APP_ROOT + '/api/user/admin', methods=['POST'])
+def route_api_user_admin():
+  if request.form.get('supersecret') != getSecret():
+    return errorJson('not allowed')
+
+  users = User.query.all()
+  data = list(map(lambda x : x.serialize(credential=True), users))
+  return flask.jsonify(ok=False, data=data)
 
 @app.errorhandler(404)
 def page_not_found(e):
