@@ -19,6 +19,8 @@ class Config(object):
     ADMIN_SECRET_URL = netsos_config.Config.ADMIN_SECRET_URL
     NETSOS_SUPER_SECRET = netsos_config.Config.NETSOS_SUPER_SECRET
     GROUND_PORT = netsos_config.Config.GROUND_PORT
+    CONTEST_USE_PASSWORD = netsos_config.Config.CONTEST_USE_PASSWORD
+    CONTEST_PASSWORD = netsos_config.Config.CONTEST_PASSWORD
     
     SESSION_COOKIE_NAME = 'session_' + GROUND_NAME
 

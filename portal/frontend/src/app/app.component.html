@@ -29,11 +29,11 @@
           <div class="pro-card-body child-text-center">
             <div class="form-group">
               <label>Username</label>
-              <input class="form-control" value={{me?.username}} disabled>
+              <input class="form-control" value={{selectedUser?.username}} disabled>
             </div>
             <div class="form-group">
               <label>SSO UI</label>
-              <input class="form-control" value={{me?.username_ui}} disabled>
+              <input class="form-control" value={{selectedUser?.username_ui}} disabled>
             </div>
           </div>
         </div>
@@ -54,10 +54,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let participation of me?.participations">
+                  <tr *ngFor="let participation of selectedUser?.participations">
                     <td>{{participation.contest?.name}}</td>
-                    <td>{{participation.position}}</td>
-                    <td>{{participation.point}}</td>
+                    <td>{{participation.position ? participation.position : 'not finished'}}</td>
+                    <td>{{participation.point ? participation.point : 'not finished'}}</td>
                   </tr>
                 </tbody>
               </table>

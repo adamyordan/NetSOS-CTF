@@ -50,9 +50,12 @@ export class AppService {
     })
   }
 
-  doParticipate(contest): Observable<any> {
+  doParticipate(contest, password=null): Observable<any> {
     const formData = new FormData();
     formData.append('contest_id', contest.id);
+    if (password) {
+      formData.append('password', password);
+    }
 
     return this.http.post(this.url.participate, formData).map((res: Response) => {
       let body = res.json();

@@ -216,6 +216,13 @@ def api_register():
     if not request.form.get('password'): return errorJson("'password' not specified")
     if not request.form.get('portal_id'): return errorJson("'portal_id' not specified")
 
+    if app.config['CONTEST_USE_PASSWORD']:
+        if not request.form.get('contest_key'):
+            return jsonify(ok=False, error="'contest_key' not specified", usePassword=True)
+        else:
+            if request.form.get('contest_key') != app.config['CONTEST_PASSWORD']:
+                return jsonify(ok=False, error='contest key invalid', usePassword=True)
+
     name = request.form['name']
     email = request.form['email']
     password = request.form['password']

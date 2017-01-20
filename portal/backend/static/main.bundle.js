@@ -61,9 +61,13 @@ var AppService = (function () {
             return body.data || {};
         });
     };
-    AppService.prototype.doParticipate = function (contest) {
+    AppService.prototype.doParticipate = function (contest, password) {
+        if (password === void 0) { password = null; }
         var formData = new FormData();
         formData.append('contest_id', contest.id);
+        if (password) {
+            formData.append('password', password);
+        }
         return this.http.post(this.url.participate, formData).map(function (res) {
             var body = res.json();
             return body || {};
@@ -110,6 +114,8 @@ var AppService = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_service__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_sweetalert2__ = __webpack_require__(506);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_sweetalert2__);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -120,6 +126,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 var AppComponent = (function () {
@@ -166,25 +173,70 @@ var AppComponent = (function () {
             _this.selectedContest['scoreboardData'] = data;
         });
     };
-    AppComponent.prototype.participate = function (contest) {
+    AppComponent.prototype.participate = function (contest, password) {
         var _this = this;
-        this.appService.doParticipate(contest).subscribe(function (data) {
-            if (data.ok) {
-                alert('ok');
-            }
-            else {
-                alert('failed');
-            }
-            _this.refreshContestsData();
+        __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
+            title: 'Confirm participation?',
+            text: "You will be registered to participate in this contest",
+            type: 'question',
+            showCancelButton: true,
+        }).then(function () {
+            __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
+                title: 'Registering participation',
+                type: 'info',
+                showConfirmButton: false,
+                allowEscapeKey: false,
+                allowOutsideClick: false
+            });
+            _this.appService.doParticipate(contest, password).subscribe(function (data) {
+                if (data.ok) {
+                    __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()('Participation granted', 'Your participation has been registered', 'success');
+                }
+                else {
+                    if (data['usePassword']) {
+                        __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
+                            title: 'Enter participation key',
+                            input: 'password',
+                        }).then(function (entered_password) {
+                            __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
+                                title: 'Registering participation',
+                                type: 'info',
+                                showConfirmButton: false,
+                                allowEscapeKey: false,
+                                allowOutsideClick: false
+                            });
+                            _this.appService.doParticipate(contest, entered_password).subscribe(function (data) {
+                                if (data.ok) {
+                                    __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()('Participation granted', 'Your participation has been registered', 'success');
+                                }
+                                else {
+                                    __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()('Participation refused', 'Your participation has refused due to some reasons', 'error');
+                                }
+                            });
+                        });
+                    }
+                    else {
+                        __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()('Participation refused', 'Your participation has refused due to some reasons', 'error');
+                    }
+                }
+                _this.refreshContestsData();
+            });
         });
     };
     AppComponent.prototype.login = function (contest) {
+        __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
+            title: 'Logging you in',
+            type: 'info',
+            showConfirmButton: false,
+            allowEscapeKey: false,
+            allowOutsideClick: false
+        });
         this.appService.doLogin(contest).subscribe(function (data) {
             if (data.ok) {
-                alert('ok');
+                __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()('Login granted', 'You have been logged in to the contest', 'success');
             }
             else {
-                alert('failed');
+                __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()('Login refused', 'Login refused due to some reasons', 'error');
             }
         });
     };
@@ -203,7 +255,7 @@ var AppComponent = (function () {
             this.selectedUserId = userId;
         }
         if (this.selectedUserId != null) {
-            this.appService.getUser(this.selectedUser).subscribe(function (data) { return _this.selectedUser = data; });
+            this.appService.getUser(this.selectedUserId).subscribe(function (data) { return _this.selectedUser = data; });
         }
     };
     AppComponent = __decorate([
@@ -432,12 +484,12 @@ var View_AppComponent2 = (function (_super) {
             this.renderer.setText(this._text_3, currVal_11);
             this._expr_11 = currVal_11;
         }
-        var currVal_12 = __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["inlineInterpolate"](1, '', this.context.$implicit.position, '');
+        var currVal_12 = __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["inlineInterpolate"](1, '', (this.context.$implicit.position ? this.context.$implicit.position : 'not finished'), '');
         if (__WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["checkBinding"](throwOnChange, this._expr_12, currVal_12)) {
             this.renderer.setText(this._text_6, currVal_12);
             this._expr_12 = currVal_12;
         }
-        var currVal_13 = __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["inlineInterpolate"](1, '', this.context.$implicit.point, '');
+        var currVal_13 = __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["inlineInterpolate"](1, '', (this.context.$implicit.point ? this.context.$implicit.point : 'not finished'), '');
         if (__WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["checkBinding"](throwOnChange, this._expr_13, currVal_13)) {
             this.renderer.setText(this._text_9, currVal_13);
             this._expr_13 = currVal_13;
@@ -643,16 +695,16 @@ var View_AppComponent1 = (function (_super) {
         return notFoundResult;
     };
     View_AppComponent1.prototype.detectChangesInternal = function (throwOnChange) {
-        var currVal_76_0_0 = ((this.parentView.context.me == null) ? null : this.parentView.context.me.participations);
+        var currVal_76_0_0 = ((this.parentView.context.selectedUser == null) ? null : this.parentView.context.selectedUser.participations);
         this._NgFor_76_6.check_ngForOf(currVal_76_0_0, throwOnChange, false);
         this._NgFor_76_6.ngDoCheck(this, this._anchor_76, throwOnChange);
         this._vc_76.detectChangesInNestedViews(throwOnChange);
-        var currVal_88 = __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["inlineInterpolate"](1, '', ((this.parentView.context.me == null) ? null : this.parentView.context.me.username), '');
+        var currVal_88 = __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["inlineInterpolate"](1, '', ((this.parentView.context.selectedUser == null) ? null : this.parentView.context.selectedUser.username), '');
         if (__WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["checkBinding"](throwOnChange, this._expr_88, currVal_88)) {
             this.renderer.setElementProperty(this._el_29, 'value', currVal_88);
             this._expr_88 = currVal_88;
         }
-        var currVal_89 = __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["inlineInterpolate"](1, '', ((this.parentView.context.me == null) ? null : this.parentView.context.me.username_ui), '');
+        var currVal_89 = __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["inlineInterpolate"](1, '', ((this.parentView.context.selectedUser == null) ? null : this.parentView.context.selectedUser.username_ui), '');
         if (__WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["checkBinding"](throwOnChange, this._expr_89, currVal_89)) {
             this.renderer.setElementProperty(this._el_37, 'value', currVal_89);
             this._expr_89 = currVal_89;
@@ -2428,7 +2480,7 @@ var environment = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(355);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(506);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(507);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__);
 
 
@@ -2450,7 +2502,7 @@ var environment = {
 
 /***/ },
 
-/***/ 507:
+/***/ 508:
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(269);
@@ -2458,5 +2510,5 @@ module.exports = __webpack_require__(269);
 
 /***/ }
 
-},[507]);
+},[508]);
 //# sourceMappingURL=main.bundle.map

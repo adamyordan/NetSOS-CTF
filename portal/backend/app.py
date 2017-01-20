@@ -339,17 +339,25 @@ def route_contest_register():
     if not contest:
       return errorJson('contest not found')
 
-    r = requests.post(getRegisterUrl(contest), data={
+    payload = {
       'supersecret': getSecret(),
       'contest_id': contest_id, 
       'portal_id': user.id,
       'name': user.username,
       'email': user.username,
       'password': 'password123'
-    })
+    }
+    if request.form.get('password'):
+      payload['contest_key'] = request.form.get('password')
 
-    if not r.json()['ok']:
-      return errorJson('registration refused: ' + str(r.json()['error']))
+    r = requests.post(getRegisterUrl(contest), data=payload)
+
+    rjson = r.json()
+    if not rjson['ok']:
+      if rjson['usePassword']:
+        return flask.jsonify(ok=False, error=rjson['error'], usePassword=True)
+      else:
+        return errorJson('registration refused: ' + str(r.json()['error']))
 
     participation = Participation(user, contest)
     user.participations.append(participation)

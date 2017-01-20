@@ -19,7 +19,7 @@ admin = Blueprint('admin', __name__)
 @admin.route('/admin', methods=['GET'])
 def admin_view():
     if is_admin():
-        return redirect(url_for('admin.admin_graphs'))
+        return redirect(app.config['GROUND_NAME'] + url_for('admin.admin_graphs'))
 
     return redirect(url_for('auth.login'))
 
@@ -832,7 +832,7 @@ def admin_create_chal():
 
     db.session.commit()
     db.session.close()
-    return redirect(url_for('admin.admin_chals'))
+    return redirect('/' + app.config['GROUND_NAME'] + url_for('admin.admin_chals'))
 
 
 @admin.route('/admin/chal/delete', methods=['POST'])
@@ -867,4 +867,4 @@ def admin_update_chal():
     db.session.add(challenge)
     db.session.commit()
     db.session.close()
-    return redirect(url_for('admin.admin_chals'))
+    return redirect('/' + app.config['GROUND_NAME'] + url_for('admin.admin_chals'))

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from './app.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -55,23 +56,66 @@ export class AppComponent {
     })
   }
 
-  participate(contest): void {
-    this.appService.doParticipate(contest).subscribe(data => {
-      if (data.ok) {
-        alert('ok');
-      } else {
-        alert('failed');
-      }
-      this.refreshContestsData();
+  participate(contest, password): void {
+    swal({
+      title: 'Confirm participation?',
+      text: "You will be registered to participate in this contest",
+      type: 'question',
+      showCancelButton: true,
+    }).then(() => {
+      swal({
+        title: 'Registering participation',
+        type: 'info',
+        showConfirmButton: false,
+        allowEscapeKey: false,
+        allowOutsideClick: false
+      });
+      this.appService.doParticipate(contest, password).subscribe(data => {
+        if (data.ok) {
+          swal('Participation granted', 'Your participation has been registered', 'success');
+        } else {
+          if (data['usePassword']) {
+            swal({
+              title: 'Enter participation key',
+              input: 'password',
+            }).then((entered_password) => {
+              swal({
+                title: 'Registering participation',
+                type: 'info',
+                showConfirmButton: false,
+                allowEscapeKey: false,
+                allowOutsideClick: false
+              });
+              this.appService.doParticipate(contest, entered_password).subscribe(data => {
+                if (data.ok) {
+                  swal('Participation granted', 'Your participation has been registered', 'success');
+                } else {
+                  swal('Participation refused', 'Your participation has refused due to some reasons', 'error');
+                }               
+              })
+            })
+          } else {
+            swal('Participation refused', 'Your participation has refused due to some reasons', 'error');
+          }
+        }
+        this.refreshContestsData();
+      });
     });
   }
 
   login(contest): void {
+    swal({
+      title: 'Logging you in',
+      type: 'info',
+      showConfirmButton: false,
+      allowEscapeKey: false,
+      allowOutsideClick: false
+    });
     this.appService.doLogin(contest).subscribe(data => {
       if (data.ok) {
-        alert('ok')
+        swal('Login granted', 'You have been logged in to the contest', 'success');
       } else {
-        alert('failed')
+        swal('Login refused', 'Login refused due to some reasons', 'error');
       }
     })
   }
@@ -90,7 +134,7 @@ export class AppComponent {
     }
 
     if (this.selectedUserId != null) {
-      this.appService.getUser(this.selectedUser).subscribe(data => this.selectedUser = data);
+      this.appService.getUser(this.selectedUserId).subscribe(data => this.selectedUser = data);
     }
   }
 
