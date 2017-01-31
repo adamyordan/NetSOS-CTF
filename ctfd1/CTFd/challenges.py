@@ -37,7 +37,7 @@ def challenges_view():
             errors.append('{} has ended'.format(ctf_name()))
         return render_template('chals.html', errors=errors, start=int(start), end=int(end))
     else:
-        return redirect(app.config['ADMIN_SECRET_URL'] + url_for('auth.login', next='challenges'))
+        return redirect(app.config['GROUND_NAME'] + url_for('auth.login', next='challenges'))
 
 @challenges.route('/api/chals', methods=['POST'])
 def api_chals():

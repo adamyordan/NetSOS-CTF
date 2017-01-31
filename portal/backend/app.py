@@ -196,7 +196,7 @@ def route_login_confirm():
   if not cas.username:
     return redirect(url_for('route_login'))
 
-  user = User.query.filter_by(username_ui=cas.username).first()
+  user = User.query.filter_by(username_ui=cas.username.lower()).first()
   if user:
     flask_login.login_user(user)
     return redirect(url_for('route_dashboard'));
@@ -216,7 +216,7 @@ def route_register():
 
   if request.method == 'POST':
     if len(request.form['username']) >= 3 and len(request.form['username']) <= 15:
-      user = User(cas.username, request.form['username'])
+      user = User(cas.username.lower(), request.form['username'])
       db.session.add(user)
       db.session.commit()
       flask_login.login_user(user)
@@ -297,6 +297,8 @@ def route_contest_admin():
       contest.startTime = int(request.form.get('startTime'))
     if request.form.get('endTime'):
       contest.startTime = int(request.form.get('startTime'))
+    if request.form.get('url'):
+      contest.url = int(request.form.get('url'))
 
     db.session.commit()
     return flask.jsonify(ok=True, data=contest.serialize())

@@ -5,7 +5,8 @@ db.create_all()
 
 # user_adam = User('adam.jordan', 'seeker')
 # user_wira = User('wira.abdillah', 'wiz4rd')
-contest_1 = Contest('NetSOS Exam', 'NetSOS 2017 open recruitment exam', True, 'http://ristek.cs.ui.ac.id/ctf/playground', 1485993600, 1486674000)
+contest_1 = Contest('NetSOS Exam', 'NetSOS 2017 open recruitment exam', True, 
+  'http://netsos.recruit.id/ctf/playground', 14859936000000, 14866740000000)
 #contest_2 = Contest('Eternal', 'Open all the time', True, 'http://192.168.0.103/eternal')
 # part_adam_1 = Participation(user_adam, contest_1)
 # part_wira_1 = Participation(user_wira, contest_1)
